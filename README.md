@@ -1,13 +1,27 @@
 # airpay-vn-ded
-Airpay got reversed. This is a product of GARENA therefore, PROTOBUF was expected
+
+Airpay got reversed engineered.
+This is a product of Garena; therefore, Protobuf was expected
+
+Tool used:
+
+- CFR
+- APKTool (repackage `smali`)
+- Wireshark
+
+I tried a few tools to automatically extract Protobuf schema file from Java project but Garena generated their code with https://github.com/square/wire so no luck with existed tools.
+
+The codebase is well structured (no proguard in 2018-03-23), kudos to their developers.
 
 ## com.beeasy.toppay_2018-03-23
 
-Inside the `com.beeasy.toppay_2018-03-23`, you will have a working proxy server to learn about Airpay protocol.
+In this version, code didn't even go through proguard before packaging (proguard is overrated anyway, why bother)
 
-To use this proxy server, you have to modify the code in extracted `smali` to call your IP instead of their final IP (125.212.198.132:10080).
+Inside the `com.beeasy.toppay_2018-03-23` folder, you will have a working proxy server to learn about Airpay protocol.
 
-They had some checksum/hashing bytes in the request payload (not included in the shared code)
+To use this proxy server, you have to modify the code in extracted `smali` to call your listening IP instead of their final IP `125.212.198.132:10080`.
+
+No checksum/hashing bytes in the request payload
 
 ### Packet structure
 
