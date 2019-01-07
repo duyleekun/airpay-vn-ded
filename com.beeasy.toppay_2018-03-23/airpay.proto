@@ -1,0 +1,28 @@
+syntax = "proto3";
+package airpay;
+
+
+message PacketHeader {
+  uint32 id = 1;
+  uint32 result = 2;
+  string message = 3;
+}
+
+message PaymentOrderInitRequest {
+
+}
+
+message LoginRequest {
+    PacketHeader header = 1;
+    uint64 uid = 2;
+    string device_key = 3;
+    uint32 device_type = 4;
+    string login_password = 5;
+    string notify_key = 6;
+    uint32 version = 7;
+    uint32 notify_type = 8;
+}
+
+message LoginReply {
+
+}

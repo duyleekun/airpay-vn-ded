@@ -1,25 +1,3 @@
-# airpay-vn-ded
-Airpay got reversed. This is a product of GARENA therefore, PROTOBUF was expected
-
-## com.beeasy.toppay_2018-03-23
-
-Inside the `com.beeasy.toppay_2018-03-23`, you will have a working proxy server to learn about Airpay protocol.
-
-To use this proxy server, you have to modify the code in extracted `smali` to call your IP instead of their final IP (125.212.198.132:10080).
-
-They had some checksum/hashing bytes in the request payload (not included in the shared code)
-
-### Packet structure
-
-#### TCP Payload Structure
-
-```
-Int32LE<REQUEST_SIZE>|Int16BE<REQUEST_CODE>|Buffer<PROTOBUF_PAYLOAD>
-```
-
-####  Request Code reference
-
-```js
 module.exports = {
   12547: "CMD_ACCOUNT_DELETE",
   12548: "CMD_ACCOUNT_LOCK",
@@ -352,47 +330,3 @@ module.exports = {
   9121: "CMD_VIRTUAL_CARD_TXN_LIST_GET",
   9127: "CMD_VIRTUAL_CARD_UNFREEZE"
 }
-
-```
-
-#### Protobuf structure
-
-Only LoginRequest message included
-
-```protobuf
-
-syntax = "proto3";
-package airpay;
-
-
-message PacketHeader {
-  uint32 id = 1;
-  uint32 result = 2;
-  string message = 3;
-}
-
-message PaymentOrderInitRequest {
-
-}
-
-message LoginRequest {
-    PacketHeader header = 1;
-    uint64 uid = 2;
-    string device_key = 3;
-    uint32 device_type = 4;
-    string login_password = 5;
-    string notify_key = 6;
-    uint32 version = 7;
-    uint32 notify_type = 8;
-}
-
-message LoginReply {
-
-}
-
-```
-
-
-# Want your app got DED?
-
-Contact me and we can have a talk.

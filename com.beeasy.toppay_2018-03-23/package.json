@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "hexdump-nodejs": "^0.1.0",
+    "protobufjs": "^6.8.6"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
